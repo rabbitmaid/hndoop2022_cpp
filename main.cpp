@@ -109,9 +109,69 @@ class MyBankAccount : public BankAccount {
 };
 
 
-
 int main() {
-    cout << "Hello, World!" << endl;
+  
+    MyBankAccount bank;
+
+    string name;
+    string pin;
+    int choice;
+    int amount;
+    string newPin;
+
+    cout << "Enter your name: ";
+    cin >> name;
+
+    cout << "Enter your pin: ";
+    cin >> pin;
+
+    do{
+        printf("\n");
+        cout << "1) Deposit " << endl;
+        cout << "2) Withdrawal " << endl;
+        cout << "3) See Information " << endl;
+        cout << "4) Change Pin " << endl;
+        cout << "0) Exit " << endl;
+        cout << "Select an option: ";
+        cin >> choice;
+        printf("\n");
+
+        switch(choice) {
+
+            case 1:
+                cout << "Enter the amount to deposit: ";
+                cin >> amount;
+                printf("\n");
+                bank.deposit(name, pin, amount);
+            break;
+
+            case 2: 
+                cout << "Enter the amount to withdraw: ";
+                cin >> amount;
+                printf("\n");
+                bank.withdraw(name, pin, amount);
+            break;
+
+            case 3: 
+                bank.displayInfo(name, pin);
+            break;
+
+            case 4:
+                cout << "Enter your new pin: ";
+                cin >> newPin;
+                printf("\n");
+                bank.changePin(name, pin, newPin);
+            break;
+
+            case 0:
+            break;
+
+            default: 
+                cout << "Invalid Choice" << endl;
+        }
+    }
+    while(choice != 0);
+
     return 0;
 }
 
