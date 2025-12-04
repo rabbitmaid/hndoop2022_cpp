@@ -57,6 +57,23 @@ class MyBankAccount : public BankAccount {
          }
       }
 
+
+      void withdraw(string name2, string pin2, int amt2) override {
+         if(name2 == name && pin2 == pin) {
+            
+            if(amt2 > 0) {
+                int currentBalance = getAmount();
+                int newBalance = currentBalance - amt2;
+                setAmount(newBalance);
+            }else {
+                cout << "You are too poor";
+            }
+         }
+         else {
+            cout << "User name and pin code do not match" << endl;
+         }
+      }
+
 };
 
 
