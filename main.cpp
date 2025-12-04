@@ -28,6 +28,13 @@ class BankAccount {
 };
 
 
+class MyBankAccount : public BankAccount {
+
+    
+
+};
+
+
 
 int main() {
     cout << "Hello, World!" << endl;
