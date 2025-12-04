@@ -30,7 +30,12 @@ class BankAccount {
 
 class MyBankAccount : public BankAccount {
 
-    
+    public: 
+      MyBankAccount() {
+          name = "Ngong";
+          pin = "p";
+          setAmount(0);
+      }
 
 };
 
