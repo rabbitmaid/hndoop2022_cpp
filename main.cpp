@@ -96,6 +96,16 @@ class MyBankAccount : public BankAccount {
       }
 
 
+       void changePin(string name4, string oldPin, string newPin) override {
+         if(name4 == name && oldPin == pin) {
+            pin = newPin;
+         }
+         else {
+            cout << "User name and pin code do not match" << endl;
+         }
+      }
+
+
 };
 
 
