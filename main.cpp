@@ -13,6 +13,10 @@ class BankAccount {
     public:
       // setter 
       void setAmount(int amt) {
+         if(amt <= 0) {
+             amount = 0;
+         }
+
          amount = amt;
       }
 
@@ -35,6 +39,22 @@ class MyBankAccount : public BankAccount {
           name = "Ngong";
           pin = "p";
           setAmount(0);
+      }
+
+      void deposit(string name1, string pin1, int amt1) override {
+         if(name1 == name && pin1 == pin) {
+            
+            if(amt1 > 0) {
+                int currentBalance = getAmount();
+                int newBalance = currentBalance + amt1;
+                setAmount(newBalance);
+            }else {
+                cout << "You are too poor";
+            }
+         }
+         else {
+            cout << "User name and pin code do not match" << endl;
+         }
       }
 
 };
