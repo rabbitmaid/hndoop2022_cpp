@@ -63,16 +63,38 @@ class MyBankAccount : public BankAccount {
             
             if(amt2 > 0) {
                 int currentBalance = getAmount();
-                int newBalance = currentBalance - amt2;
-                setAmount(newBalance);
+
+                if(currentBalance < amt2) {
+
+                    cout << "Insufficient Balance" << endl;
+
+                }else {
+                    int newBalance = currentBalance - amt2;
+                    setAmount(newBalance);
+                }
+                
             }else {
-                cout << "You are too poor";
+                cout << "You are too poor" << endl;
             }
          }
          else {
             cout << "User name and pin code do not match" << endl;
          }
       }
+
+
+      void displayInfo(string name3, string pin3) override {
+         if(name3 == name && pin3 == pin) {
+            
+            cout << "Account Information" << endl;
+            cout << "Name: " << name << endl;
+            cout << "Account Balance: " << getAmount() << endl;
+         }
+         else {
+            cout << "User name and pin code do not match" << endl;
+         }
+      }
+
 
 };
 
